@@ -17,9 +17,14 @@
 - User can choose to return to the homepage
 
 # New tree
-- Species - dropbox (text input to add new species)
-- Height - text FEET, text INCHES
-- DBH - text INCHES
+- Date surveyed -       text
+- Species -             dropbox with addtl text field for new species
+- Height -              text FEET
+- DBH -                 text INCHES
+- Foliage density -     radio button (Abundant, Normal, Sparse, Bare)
+- Weather -             radio button (clear sky, light clouds, abundant clouds, overcast, rain, snow, other [text box]), text for degrees F
+- *Picture* stretch
+- Additional comments - text box
 
 
 # View tree
