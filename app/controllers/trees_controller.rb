@@ -1,0 +1,3 @@
+class TreesController < ApplicationController
+
+end

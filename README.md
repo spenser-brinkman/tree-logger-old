@@ -33,7 +33,7 @@
 # Edit tree
 - Date surveyed -       text
 - Species -             dropbox with addtl text field for new species
-- Height -              text FEET, text INCHES
+- Height -              text FEET
 - DBH -                 text INCHES
 - Foliage density -     radio button (Abundant, Normal, Sparse, Bare)
 - Weather -             radio button (clear sky, light clouds, abundant clouds, overcast, rain, snow, other [text box]), text for degrees F
