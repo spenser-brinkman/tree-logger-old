@@ -57,4 +57,4 @@ Tree characteristics
   # Stretch Goals
   - User provides zip code which will help app generate list of endemic species on their homepage
   - Homepage includes general tree-care links (ANSI standards, terminology, identification)
-  - Homepage provides resource to find local arborists 
+  - Homepage provides resource to find local arborists
