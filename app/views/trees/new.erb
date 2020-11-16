@@ -1,10 +1,14 @@
 <form action="/trees" method="post">
 
   <label for="survey_date">Date of survey: </label>
-  <input type="text" name="survey_date" id="survey_date">
+  <input type="text" name="tree[survey_date]" id="survey_date">
   <br><br>
-  <p>Species: </p>
-  <label for="">Species: </label>
-  <input type="radio" name="species" id="species">
+  <h4>Species: </h4>
+  <% Species.all.each do |species| %>
+    <label for="species_<%= species.id %>"><%= species.name %></label>
+    <input type="radio" name="tree[species_id]" id="species_<%= species.id %>" value="<%= species.id %>">
+  <% end %>
+  <label for="other_species"></label>
+  <input type="radio" name="tree[species_id]" id="other_species" value="">Other: <input type="text" name="new_species">
 
 </form>
