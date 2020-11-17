@@ -5,10 +5,13 @@ class TreesController < ApplicationController
   end
   
   post '/trees' do
-    if params[:tree][:species_id] == "" && params[:new_species]
-      # code
+    binding.pry
+    if params[:tree][:species_id] == "" && params[:new_species] != ""
+    #   # code
+    elsif params[:tree][:species_id] == "" && params[:new_species] == ""
+        # code for if no species selected
     else
-      # code
+    #   # code
     end
   end
 end

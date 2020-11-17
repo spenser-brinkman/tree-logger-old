@@ -1,14 +1,47 @@
+<h1>Create New Tree</h1>
+<br><br>
+
 <form action="/trees" method="post">
 
   <label for="survey_date">Date of survey: </label>
   <input type="text" name="tree[survey_date]" id="survey_date">
-  <br><br>
-  <h4>Species: </h4>
-  <% Species.all.each do |species| %>
-    <label for="species_<%= species.id %>"><%= species.name %></label>
-    <input type="radio" name="tree[species_id]" id="species_<%= species.id %>" value="<%= species.id %>">
-  <% end %>
-  <label for="other_species"></label>
-  <input type="radio" name="tree[species_id]" id="other_species" value=""> Other: <input type="text" name="new_species">
+  <br><br><br>
+
+  <label>Species: </label><br>
+  <select name="tree[species_id]" id="species">
+    <option value="" selected disabled hidden>Select a species</option>
+    <option value="">Other (fill in field below)</option>
+    <% Species.all.each do |species| %>
+      <option value="<%= species.id %>"><%= species.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <label for="other_species">Add a species to the list: </label>
+  <input type="text" name="new_species">
+  <br><br><br>
+
+  <label for="height">Estimated height in feet: </label>
+  <input type="text" name="tree[height]" id="height">
+  <br><br><br>
+
+  <label for="dbh">Estimated <a href="https://en.wikipedia.org/wiki/Diameter_at_breast_height" target="_blank">DBH</a> in inches: </label>
+  <input type="text" name="tree[dbh]" id="dbh">
+  <br><br><br>
+
+  <label>Foliage density:</label>
+  <select name="tree[foliage]" id="foliage">
+    <option value="" selected disabled hidden>Select an option</option>
+    <option value="1">Abundant</option>
+    <option value="2">Normal</option>
+    <option value="3">Sparse</option>
+    <option value="4">Bare/Dead</option>
+  </select>
+  <br><br><br>
+  
+  <label for="comments">Additional comments:</label><br>
+  <textarea name="tree[comments]" id="comments" cols="50" rows="10" placeholder="Use this area to make notes about things like: observed nests, health defects, fertilization and pest management history, etc"></textarea>
+  <br><br><br>
+
+  <input type="submit" value="Submit New Tree">
 
 </form>
