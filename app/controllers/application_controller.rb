@@ -31,6 +31,9 @@ class ApplicationController < Sinatra::Base
     def authorize(resource)
       redirect back if resource.user != current_user
     end
-  
+
+    def today
+      DateTime.now.strftime("%Y-%m-%d")
+    end
   end
 end
