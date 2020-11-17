@@ -11,21 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201116225742) do
+ActiveRecord::Schema.define(version: 20201117211741) do
 
   create_table "species", force: :cascade do |t|
     t.string "name"
   end
 
   create_table "trees", force: :cascade do |t|
-    t.string  "species"
     t.integer "height"
     t.integer "dbh"
     t.string  "survey_date"
     t.string  "foliage"
     t.string  "weather"
     t.integer "temperature"
-    t.text    "comment"
+    t.text    "comments"
     t.integer "user_id"
     t.integer "species_id"
   end
