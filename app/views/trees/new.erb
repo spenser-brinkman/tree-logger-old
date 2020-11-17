@@ -1,15 +1,28 @@
 <h1>Create New Tree</h1>
 <br><br>
 
+<% if @user && @user.errors.any? %>
+  <% @user.errors.full_messages.uniq.each do |msg| %>
+    <p style="color:#FF0000";><%= msg %></p>
+  <% end %>
+<% end %>
+
 <form action="/trees" method="post">
 
-  <label for="survey_date">Date of survey: </label>
-  <input type="text" name="tree[survey_date]" id="survey_date">
+  <%# <label for="survey_date">*Date of survey: </label>
+  <input type="text" name="tree[survey_date]" id="survey_date"> %>
+  
+  <label for="survey_date">Date of Survey:</label>
+
+  <input type="date" id="survey_date" name="tree[survey_date]"
+    value="<%= today %>"
+    min="2020-01-01" max="2029-12-31">
+
   <br><br><br>
 
-  <label>Species: </label><br>
+  <label>*Species: </label><br>
   <select name="tree[species_id]" id="species">
-    <option value="" selected disabled hidden>Select a species</option>
+    <option value="" selected hidden>Select a species</option>
     <option value="">Other (fill in field below)</option>
     <% Species.all.each do |species| %>
       <option value="<%= species.id %>"><%= species.name %></option>
