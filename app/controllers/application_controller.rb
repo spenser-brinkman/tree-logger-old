@@ -9,6 +9,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, '66f1e7b1c6ad78e94a063deaf705160f'
   end
 
+  
   get "/" do
     erb :landing
   end
@@ -21,7 +22,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def logged_in?
-      !!current_user
+      !!session[:user_id]
     end
 
     def authentication
