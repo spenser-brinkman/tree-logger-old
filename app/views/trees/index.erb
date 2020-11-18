@@ -5,9 +5,9 @@
   <li>
     <a href="/trees/<%= tree.id %>"><%= Species.find(tree.species_id).name %></a>
     <br><br>
-    <p>Date Surveyed: <%= tree.survey_date if tree.survey_date %></p>
-    <p>Height: <%= tree.height if tree.height %> feet</p>
-    <p>DBH: <%= tree.dbh if tree.dbh %> inches</p>
+    <p>Date Surveyed: <%= tree.survey_date ? tree.survey_date : "N/A" %></p>
+    <p>Height: <%= tree.height ? tree.height.to_s + " feet" : "N/A" %></p>
+    <p>DBH: <%= tree.dbh ? tree.dbh.to_s + " inches" : "N/A" %></p>
   </li>
   <% if tree != current_user.trees.last %>
     <br><br>
