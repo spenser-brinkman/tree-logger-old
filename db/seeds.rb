@@ -1,6 +1,6 @@
 Species.destroy_all
 
-Species.create({name: "Unknown"})
+Species.create({name: "Unknown Species"})
 Species.create({name: "Alder"})
 Species.create({name: "Almond"})
 Species.create({name: "Apple"})
@@ -9,6 +9,7 @@ Species.create({name: "Ash"})
 Species.create({name: "Aspen"})
 Species.create({name: "Birch"})
 Species.create({name: "Box Elder"})
+Species.create({name: "Bottlebrush"})
 Species.create({name: "Buckeye"})
 Species.create({name: "Cedar"})
 Species.create({name: "Cherry"})
