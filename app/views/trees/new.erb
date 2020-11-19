@@ -1,5 +1,5 @@
-<h1>Create New Tree</h1>
-<br><br>
+<h2 align="center">Log New Tree</h2>
+<br>
 
 <% if @user && @user.errors.any? %>
   <% @user.errors.full_messages.uniq.each do |msg| %>
@@ -8,15 +8,12 @@
 <% end %>
 
 <form action="/trees" method="post">
-
-  <%# <label for="survey_date">*Date of survey: </label>
-  <input type="text" name="tree[survey_date]" id="survey_date"> %>
   
   <label for="survey_date">Date of Survey:</label>
 
   <input type="date" id="survey_date" name="tree[survey_date]"
     value="<%= today %>"
-    min="2020-01-01" max="<%= today %>">
+    min="2015-01-01" max="<%= today %>">
 
   <br><br><br>
 
@@ -41,13 +38,13 @@
   <input type="text" name="tree[dbh]" id="dbh">
   <br><br><br>
 
-  <label>Foliage density:</label>
+  <label for="foliage">Foliage density:</label>
   <select name="tree[foliage]" id="foliage">
     <option value="" selected disabled hidden>Select an option</option>
-    <option value="Abundant">Abundant</option>
-    <option value="Normal">Normal</option>
-    <option value="Sparse">Sparse</option>
-    <option value="Bare/Dead">Bare/Dead</option>
+    <% foliage_options = ["Abundant", "Normal", "Sparse", "Bare/Dead"] %>
+    <% foliage_options.each do |choice| %>
+      <option value="<%= choice %>"><%= choice %></option>
+    <% end %>
   </select>
   <br><br><br>
   
@@ -55,6 +52,6 @@
   <textarea name="tree[comments]" id="comments" cols="50" rows="10" placeholder="Use this area to make notes about things like: observed nests, health defects, fertilization and pest management history, etc"></textarea>
   <br><br><br>
 
-  <input type="submit" value=" Submit New Tree ">
+  <button class="button">Submit New Tree</button>
 
 </form>
