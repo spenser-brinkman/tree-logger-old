@@ -14,7 +14,20 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="wrapper">
+    <br><div class="wrapper">
+
+      <header>
+        <span><img src="/images/logo.png" alt="TreeLogger Logo" width="auto" height="35"></span>
+        <span style="font-size:300%"><a class="homeLink" href="/home"><strong>TreeLogger</strong></a></span>
+        <span style="float:right;">
+          <% unless params[:controller] == '/' && params[:action] == 'get' %>
+            <% if logged_in? %>
+              <a id="user_control" href="/logout">Log Out</a>
+            <% end %>
+          <% end %>
+        </span>
+      </header>
+      <br>
 
         <%= yield %>
 
