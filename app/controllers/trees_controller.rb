@@ -39,7 +39,7 @@ class TreesController < ApplicationController
       redirect to "/login"
     else
       @tree = current_user.trees.find(params[:id])
-      erb :"trees/view"
+      erb :"trees/show"
     end
   end
 
@@ -47,7 +47,18 @@ class TreesController < ApplicationController
     if !logged_in?
       redirect to "/login"
     else
+      @tree = current_user.trees.find(params[:id])
+      erb :"trees/edit"
+    end
+  end
 
+  delete '/trees/:id' do
+    if !logged_in?
+      redirect to "/login"
+    else
+      tree = current_user.trees.find(params[:id])
+      tree.destroy
+      redirect to "/trees"
     end
   end
 end
