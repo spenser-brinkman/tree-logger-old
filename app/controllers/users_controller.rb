@@ -18,19 +18,27 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+    if logged_in?
       redirect to "/home"
     else
-      @err = "Invalid Credentials"
-      erb :"users/login"
+      user = User.find_by(username: params[:username])
+      if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
+        redirect to "/home"
+      else
+        @err = "Invalid Credentials"
+        erb :"users/login"
+      end
     end
   end
 
   get '/home' do
-    @user = current_user
-    erb :"users/home"
+    if !logged_in?
+      redirect to "/login"
+    else
+      @user = current_user
+      erb :"users/home"
+    end
   end
 
   get '/logout' do
