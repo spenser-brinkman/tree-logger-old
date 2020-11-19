@@ -1,6 +1,6 @@
-<h1>Registration Form</h1>
+<br><h2>Register New Account</h2>
 
-<a href="/login">Already have an account?</a>
+Already have an account? <button type="submit" formaction="/login" method="get">Log In</button>
 <br><br>
 
 <% if @user && @user.errors.any? %>
@@ -11,14 +11,14 @@
 
 <form action="/signup" method="post">
 
-  <label for="username">Username: </label>
+  <label for="username">New Username: </label>
   <input type="text" name="username" id="username" value="<%= @user.username if @user %>">
   <br><br>
 
-  <label for="password">Password: </label>
+  <label for="password">New Password: </label>
   <input type="password" name="password" id="password">
   <br><br>
 
-  <input type="submit" value=" Create New Account ">
+  <button>Create Account</button>
 
 </form>
