@@ -1,9 +1,9 @@
-<h1>Home</h1>
-<h3>Welcome, <%= current_user.username %>!</h3>
-<br>
+<h2>Welcome, <%= current_user.username %>!</h2>
 
-<a href="/trees">View your trees</a>
-<br><br>
-<a href="/trees/new">Create a new tree</a>
-<br><br>
-<a href="/logout">Log out</a>
+<form align="center" action="/trees" method="get">
+  <button>View Your Trees</button>
+  
+  <button formaction="/trees/new">Log New Tree</button>
+  
+  <button formaction="/logout">Log Out</button>
+</form>

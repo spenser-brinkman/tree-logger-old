@@ -5,3 +5,14 @@
 <p>DBH: <%= @tree.dbh ? @tree.dbh.to_s + " inches" : "N/A" %></p>
 <p>Foliage Density: <%= @tree.foliage ? @tree.foliage : "N/A" %></p>
 <p>Comments:<br><%= @tree.comments ? @tree.comments : "N/A" %></p>
+<br>
+
+<form action="/trees/<%= @tree.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="submit" value=" Edit This Tree ">
+</form>
+<br>
+<form action="/trees/<%= @tree.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value=" Delete This Tree ">
+</form>
