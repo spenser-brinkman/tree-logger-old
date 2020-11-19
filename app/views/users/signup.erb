@@ -1,7 +1,4 @@
-<br><h2>Register New Account</h2>
-
-Already have an account? <button type="submit" formaction="/login" method="get">Log In</button>
-<br><br>
+<h2>Register New Account</h2>
 
 <% if @user && @user.errors.any? %>
   <% @user.errors.full_messages.uniq.each do |msg| %>
@@ -19,6 +16,13 @@ Already have an account? <button type="submit" formaction="/login" method="get">
   <input type="password" name="password" id="password">
   <br><br>
 
-  <button>Create Account</button>
+  <button class="button">Create Account</button>
 
+</form>
+<br><br>
+
+Already have an account?
+<br>
+<form action="/login" method="get">
+  <button class="button small">Log In Here</button>
 </form>
