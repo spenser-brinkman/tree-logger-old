@@ -1,16 +1,27 @@
-<h1>Your Trees</h1><br>
+<h2 align="center">Your Trees</h2>
 
-<ol>
-<% current_user.trees.each do |tree| %>
-  <li>
-    <a href="/trees/<%= tree.id %>"><%= Species.find(tree.species_id).name %></a>
-    <br><br>
-    <p>Date Surveyed: <%= tree.survey_date ? tree.survey_date : "N/A" %></p>
-    <p>Height: <%= tree.height ? tree.height.to_s + " feet" : "N/A" %></p>
-    <p>DBH: <%= tree.dbh ? tree.dbh.to_s + " inches" : "N/A" %></p>
-  </li>
-  <% if tree != current_user.trees.last %>
-    <br><br>
+<% if !current_user.trees.empty? %>
+  <ol>
+  <% current_user.trees.each do |tree| %>
+    <li>
+      <form action="/trees/<%= tree.id %>" method="get">
+        <button class="button"><%= Species.find(tree.species_id).name %></button>
+      </form>
+      <br>
+      <p>Date Surveyed: <%= tree.survey_date ? tree.survey_date : "N/A" %></p>
+      <p>Height: <%= tree.height ? tree.height.to_s + " feet" : "N/A" %></p>
+      <p>DBH: <%= tree.dbh ? tree.dbh.to_s + " inches" : "N/A" %></p>
+    </li>
+    <% if tree != current_user.trees.last %>
+      <br><br>
+    <% end %>
   <% end %>
+  </ol>
+
+<% elsif current_user.trees.empty? %>
+  <p align="center">You have not logged any trees yet.</p>
+
+  <form align="center" action="/trees/new" method="get">
+    <button class="button">Log New Tree</button>    
+  </form>
 <% end %>
-</ol>
