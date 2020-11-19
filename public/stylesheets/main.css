@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color: rgb(25, 78, 38);
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -25,6 +25,7 @@
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin: 16px auto;
+    margin-top: 0px;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
@@ -81,6 +82,37 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+
+  footer span a {
+    text-align: right;
+  }
+  
+  button {
+    background-color: rgb(25, 78, 38); /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid #4CAF50;
+  }
+
+  button:hover {
+    background-color: white;
+    color: black
+  }
+
+  a.homeLink {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+
 }
 
 @media screen and (max-width: 600px) {
