@@ -52,6 +52,16 @@ class TreesController < ApplicationController
     end
   end
 
+  patch '/trees/:id' do
+    if !logged_in?
+      redirect to "/login"
+    else 
+      tree = current_user.trees.find(params[:id])
+      tree.update(params[:tree])
+      redirect to "/trees/#{tree.id}"
+    end
+  end
+
   delete '/trees/:id' do
     if !logged_in?
       redirect to "/login"
