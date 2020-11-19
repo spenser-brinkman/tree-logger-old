@@ -6,7 +6,7 @@
   <% end %>
 <% end %>
 
-<form action="/trees/:id" method="post">
+<form action="/trees/<%= @tree.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
 
   <label for="survey_date">Date of Survey:</label>
