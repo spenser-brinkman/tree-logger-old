@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201117211741) do
+ActiveRecord::Schema.define(version: 20201119174124) do
 
   create_table "species", force: :cascade do |t|
     t.string "name"
@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(version: 20201117211741) do
     t.integer "dbh"
     t.string  "survey_date"
     t.string  "foliage"
-    t.string  "weather"
-    t.integer "temperature"
     t.text    "comments"
     t.integer "user_id"
     t.integer "species_id"
