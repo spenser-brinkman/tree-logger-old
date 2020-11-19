@@ -1,6 +1,56 @@
+<h2 align="center">Edit <%= Species.find(@tree.species_id).name %></h2>
+
+<% if @user && @user.errors.any? %>
+  <% @user.errors.full_messages.uniq.each do |msg| %>
+    <p style="color:#FF0000";><%= msg %></p>
+  <% end %>
+<% end %>
+
 <form action="/trees/:id" method="post">
   <input type="hidden" name="_method" value="patch">
 
+  <label for="survey_date">Date of Survey:</label>
 
+  <input type="date" id="survey_date" name="tree[survey_date]"
+    value="<%= today %>"
+    min="2015-01-01" max="<%= today %>">
+
+  <br><br><br>
+
+  <label>*Species: </label><br>
+  <select name="tree[species_id]" id="species">
+    <option value="" selected hidden>Select a species</option>
+    <option value="">Other (fill in field below)</option>
+    <% Species.all.each do |species| %>
+      <option value="<%= species.id %>" <%= "selected" if @tree.species.id == species.id %>><%= species.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <label for="other_species">Add another species: </label>
+  <input type="text" name="new_species">
+  <br><br><br>
+
+  <label for="height">Estimated height in feet: </label>
+  <input type="text" name="tree[height]" id="height" value="<%= @tree.height %>">
+  <br><br><br>
+
+  <label for="dbh">Estimated <a href="https://en.wikipedia.org/wiki/Diameter_at_breast_height" target="_blank">DBH</a> in inches: </label>
+  <input type="text" name="tree[dbh]" id="dbh" value="<%= @tree.dbh %>">
+  <br><br><br>
+
+  <label for="foliage">Foliage density:</label>
+  <select name="tree[foliage]" id="foliage">
+    <% foliage_options = ["Abundant", "Normal", "Sparse", "Bare/Dead"] %>
+    <% foliage_options.each do |choice| %>
+      <option value="<%= choice %>" <%= "selected" if @tree.foliage == choice %>><%= choice %></option>
+    <% end %>
+  </select>
+  <br><br><br>
+  
+  <label for="comments">Additional comments:</label><br>
+  <textarea name="tree[comments]" id="comments" cols="50" rows="10"><%= @tree.comments %></textarea>
+  <br><br><br>
+
+  <button class="button">Submit Changes</button>
 
 </form>
