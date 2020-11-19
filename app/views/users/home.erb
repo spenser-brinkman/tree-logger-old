@@ -1,9 +1,8 @@
-<h2>Welcome, <%= current_user.username %>!</h2>
+<h2 align="center">Welcome, <%= current_user.username %>!</h2>
 
 <form align="center" action="/trees" method="get">
-  <button>View Your Trees</button>
+  <button class="button">View Your Trees</button>
   
-  <button formaction="/trees/new">Log New Tree</button>
+  <button class="button" formaction="/trees/new">Log New Tree</button>
   
-  <button formaction="/logout">Log Out</button>
 </form>
