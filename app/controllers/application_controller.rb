@@ -11,7 +11,11 @@ class ApplicationController < Sinatra::Base
 
   
   get "/" do
-    erb :landing
+    if logged_in?
+      redirect to "/home"
+    else
+      erb :landing
+    end
   end
 
   
