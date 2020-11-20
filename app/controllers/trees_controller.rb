@@ -56,8 +56,17 @@ class TreesController < ApplicationController
     if !logged_in?
       redirect to "/login"
     else 
+      if params[:tree][:species_id] == "" && params[:new_species] != ""                      # If user wants to enter new species
+        species = Species.create(name: params[:new_species])
+      elsif params[:tree][:species_id] == "" && params[:new_species] == ""                   # If user does not select a species
+        species = Species.find_by_name("Unknown")
+      else
+        species = Species.find(params[:tree][:species_id])
+      end
       tree = current_user.trees.find(params[:id])
       tree.update(params[:tree])
+      tree.species_id = species.id
+      tree.save
       redirect to "/trees/#{tree.id}"
     end
   end
