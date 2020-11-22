@@ -1,75 +1,25 @@
-# Landing page
-- User can log in
-- User can sign up
+This application allows users to keep an inventory of trees growing on a property.  In its current state, the program allows a user to specify the date in which the tree was last inspected, along with its species, height, diameter, foliar density, and any additional comments the user would like to include relating to health issues, watering/fertilization schedules, animal nesting, etc.  At any point in the future, the user can go back to view a specific tree to either update or delete its data.
 
-# Homepage
-- *STRETCH* Display how many trees are saved
-- *STRETCH* Display last log in date
-- User can choose to view index of all saved trees
-- User can choose to create a new tree
-- User can choose to log out
+# Installation & Startup
+1. Fork and clone this repository from GitHub into your coding environment of choice
+2. Run `bundle install` to ensure all required Ruby Gems are present
+3. Run `shotgun` to initialize TreeLogger on a server housed on your device
+4. In your web browser, navigate to TreeLogger's homepage at http://localhost:9393/
 
-# Index of all trees
-- User can choose to view an individual tree
-- User can choose to edit an individual tree
-- User can choose to create a new tree
-- User can choose to delete an individual tree
-- User can choose to return to the homepage
-
-# New tree
-- Date surveyed -       text
-- Species -             dropbox with addtl text field for new species
-- Height -              text FEET
-- DBH -                 text INCHES
-- Foliage density -     radio button (Abundant, Normal, Sparse, Bare)
-- Weather -             radio button (clear sky, light clouds, abundant clouds, overcast, rain, snow, other [text box]), text for degrees F
-- *Picture* stretch
-- Additional comments - text box
-
-
-# View tree
-- *STRETCH* Shows most recent survey
-- *STRETCH* User can choose to view all past survey data
-- User can choose to edit the tree
-- User can choose to delete the tree
-- User can choose to return to index of all saved trees
-- User can choose to return to the homepage
-
-# Edit tree
-- Date surveyed -       text
-- Species -             dropbox with addtl text field for new species
-- Height -              text FEET
-- DBH -                 text INCHES
-- Foliage density -     radio button (Abundant, Normal, Sparse, Bare)
-- Weather -             radio button (clear sky, light clouds, abundant clouds, overcast, rain, snow, other [text box]), text for degrees F
-- *Picture* stretch
-- Additional comments - text box
-
-
-# *STRETCH* Survey view
-- User can choose to edit data of a survey
-- User can choose to delete a survey
-- User can choose to return to individual tree
-- User can choose to return to index of all saved trees
-- User can choose to return to the homepage
-
-# Tree characteristics
-- *User
-- Species
-- Height
-- DBH
-- Date surveyed
-- Foliage
-- Weather
-- Picture
-- Comments
-
-
-
+# Flatiron Assessment Video & Blog
+link
+link
 
 # Stretch Goals
+- User can manage multiple properties
 - Password complexity & length reqs
 - User provides zip code which will help app generate list of endemic species on their homepage
 - Homepage includes general tree-care links (ANSI standards, terminology, identification)
 - Homepage provides resource to find local arborists
-- Include age of tree
+- Include age of tree (if known) & checkbox for new survey to mark a tree as "newly planted" to assign it a birthdate
+- Homepage shows how many trees are saved
+- Incorporate a Survey model, in which many trees can be added & updated at once. The data from a survey is added to a tree's history of surveys which may be viewed and altered. A tree would then contain a record of past data with corresponding visualiztions, etc
+- Homepage shows most recent survey date
+- Include a weather attribute for surveys
+- Allow users to upload photograps of each tree
+- Allow users to assign a "name" to each tree to help differentiate between multiple trees of the same species
