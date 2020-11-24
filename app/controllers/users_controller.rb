@@ -33,12 +33,9 @@ class UsersController < ApplicationController
   end
 
   get '/home' do
-    if !logged_in?
-      redirect to "/login"
-    else
-      @user = current_user
-      erb :"users/home"
-    end
+    authentication
+    @user = current_user
+    erb :"users/home"
   end
 
   get '/logout' do
