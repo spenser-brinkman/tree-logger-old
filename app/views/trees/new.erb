@@ -3,7 +3,7 @@
 
 <% if @user && @user.errors.any? %>
   <% @user.errors.full_messages.uniq.each do |msg| %>
-    <p style="color:#FF0000";><%= msg %></p>
+    <p style="color:#FF0000;"><%= msg %></p>
   <% end %>
 <% end %>
 
