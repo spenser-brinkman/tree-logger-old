@@ -53,11 +53,11 @@ class TreesController < ApplicationController
   private
 
   def select_or_create_species
-    if params[:tree][:species_id] == "" && params[:new_species] != ""                      # If user wants to enter new species
+    if params[:tree][:species_id] == "" && params[:new_species] != ""         # If user wants to enter new species
       @species = Species.create(name: params[:new_species])
-    elsif params[:tree][:species_id] == "" && params[:new_species] == ""                   # If user does not select a species
+    elsif params[:tree][:species_id] == "" && params[:new_species] == ""      # If user does not select a species
       @species = Species.find_by_name("Unknown")
-    else
+    else                                                                      # If user simply selects from dropdown
       @species = Species.find(params[:tree][:species_id])
     end
   end
