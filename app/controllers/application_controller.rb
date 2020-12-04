@@ -8,7 +8,6 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, '66f1e7b1c6ad78e94a063deaf705160f'
   end
-
   
   get "/" do
     if logged_in?
@@ -18,7 +17,7 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  
+
   helpers do
     
     def current_user
